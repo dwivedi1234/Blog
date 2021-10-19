@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('admin.category.add');
     }
 
     /**
@@ -36,34 +35,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // To insert in mass 
-        // return $request->name;
-        // $request['slug'] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->name)));
-
-        // use Helper to make a string into slug 
-        $request['slug'] = make_slug($request->name);
-
-
-        Category::create($request->all());
-
-        // to store data in database
-
-
-        // $category = new Category;
-        // $category->name = $request->name;
-        // $category->slug = strtolower($request->slug);
-        // $category->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Blog $blog)
     {
         //
     }
@@ -71,10 +52,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Blog $blog)
     {
         //
     }
@@ -83,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -94,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Blog $blog)
     {
         //
     }
