@@ -26,6 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('category', '\App\Http\Controllers\CategoryController')->middleware('auth');
 
 
+Route::post('category/update', '\App\Http\Controllers\CategoryController@categoryUpdate')->name('categoryUpdate')->middleware('auth');
+
+
 
 // Route::get('contact-form','con@form');
 // Route::post('contact-form','con@formsubmits');

@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.category.add');
+        $data = Category::get();
+        return view('admin.category.add',compact('data'));
     }
 
     /**
@@ -91,6 +91,22 @@ class CategoryController extends Controller
         //
     }
 
+    public function categoryUpdate(Request $request)
+    {
+        # code...
+        $category = Category::find($request->category_id);
+        $category->name = $request->name;
+        $category->slug = make_slug($request->slug);
+        if ($category->save()) {
+            # code...
+            return redirect()->back()->with('warning','Something went wrong') ;
+        } else {
+            # code...
+            return redirect()->back()->with('success','Category updated successfully') ;
+        }
+        
+
+    }
     /**
      * Remove the specified resource from storage.
      *
