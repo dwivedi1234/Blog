@@ -13,6 +13,12 @@
             Category
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('blog.index')}}">
+            <span data-feather="file"></span>
+            Blogs
+          </a>
+        </li>
         
       </ul>
     </div>

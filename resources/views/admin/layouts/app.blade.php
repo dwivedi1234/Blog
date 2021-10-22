@@ -8,7 +8,8 @@
 
     <div class="container-fluid">
         <div class="row">
-                @include('admin.layouts.sidebar')
+            @include('admin.layouts.sidebar')
+              
                 @yield('content')
         </div>
     </div>

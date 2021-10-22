@@ -28,7 +28,8 @@ Route::resource('category', '\App\Http\Controllers\CategoryController')->middlew
 
 Route::post('category/update', '\App\Http\Controllers\CategoryController@categoryUpdate')->name('categoryUpdate')->middleware('auth');
 
-
+// Blog
+Route::resource('blog', '\App\Http\Controllers\BlogController')->middleware('auth');
 
 // Route::get('contact-form','con@form');
 // Route::post('contact-form','con@formsubmits');
