@@ -13,23 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+// front 
+Route::get('/', 'Front\HomeController@index')->name('index');
+Route::get('/blog/{slug}', 'Front\HomeController@blogDetails')->name('blogDetails');
+
+
+
+
+
+
+
+
+
+
+
+// auth login and register 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home','HomeController@index')->name('home');
 
 
 
-Route::resource('category', '\App\Http\Controllers\CategoryController')->middleware('auth');
-
-
-Route::post('category/update', '\App\Http\Controllers\CategoryController@categoryUpdate')->name('categoryUpdate')->middleware('auth');
-
+// category 
+Route::resource('category', 'CategoryController')->middleware('auth');
+Route::post('category/update', 'CategoryController@categoryUpdate')->name('categoryUpdate')->middleware('auth');
 // Blog
-Route::resource('blog', '\App\Http\Controllers\BlogController')->middleware('auth');
+Route::resource('blog', 'BlogController')->middleware('auth');
 
-// Route::get('contact-form','con@form');
-// Route::post('contact-form','con@formsubmits');

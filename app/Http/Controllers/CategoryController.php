@@ -37,22 +37,20 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // To insert in mass 
-        // return $request->name;
-        // $request['slug'] = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->name)));
+       
+        
 
         // use Helper to make a string into slug 
-        $request['slug'] = make_slug($request->name);
+        // $request['slug'] = make_slug($request->name);
+        // Category::create($request->all());
 
 
-        Category::create($request->all());
 
         // to store data in database
-
-
-        // $category = new Category;
-        // $category->name = $request->name;
-        // $category->slug = strtolower($request->slug);
-        // $category->save();
+        $category = new Category;
+        $category->name = $request->name;
+        $category->slug = make_slug($request->name);
+        $category->save();
 
         return redirect()->back();
     }
@@ -115,6 +113,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+     $data= Category::find($id);
+        $data->delete();
+        return redirect()->route('category');
+
     }
 }
