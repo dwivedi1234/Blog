@@ -6,9 +6,10 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
  <!-- site metas -->
- <title>Bloscot</title>
+ <title>@yield('head')</title>
  <meta name="keywords" content="">
- <meta name="description" content="">
+ <meta name="description" content="@yield('description')">
+ 
  <meta name="author" content="">
  <!-- bootstrap css -->
  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">

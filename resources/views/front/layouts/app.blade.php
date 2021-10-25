@@ -3,7 +3,7 @@
 <head>
     @include('front.layouts.head')
 </head>
-<body>
+<body style="background: #E9EFF2">
     @include('front.layouts.nav')
 
     @yield('content')

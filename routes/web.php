@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Front\HomeController@index')->name('index');
 Route::get('/blog/{slug}', 'Front\HomeController@blogDetails')->name('blogDetails');
 
+Route::get('category/{slug}','Front\HomeController@categoryBlog')->name('categoryBlog');
+
 
 
 

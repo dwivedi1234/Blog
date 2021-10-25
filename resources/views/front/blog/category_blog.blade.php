@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 
-@section('head','My First Blog')
+@section('head',$category->name)
 @section('description','this is my short description')
 
 @section('content')
@@ -54,7 +54,7 @@
                   <h1 class="about_taital">Category</h1>
                   <div class="tag_bt">
                       <ul>
-                        @forelse ($category as $item)
+                        @forelse ($category_list as $item)
                             <li class="active mt-4"><a href="{{route('categoryBlog',$item->slug)}}">{{$item->name}}</a></li>
                         @empty
                             <p>No Category</p>

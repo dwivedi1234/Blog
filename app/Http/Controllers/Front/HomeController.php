@@ -23,6 +23,20 @@ class HomeController extends Controller
         # code...
         $blog = Blog::where('slug',$slug)->first();
         $category = Category::latest()->get();
-        return view('front.blog.details',compact('blog','category'));
+
+        $related_blog = Blog::select('title','slug')->where('id','!=',$blog->id)->where('category_id',$blog->category_id)->latest()->get();
+
+
+        return view('front.blog.details',compact('blog','category','related_blog'));
+    }
+
+    public function categoryBlog($slug)
+    {
+        # code...
+        $category_list = Category::get();
+        $category = Category::select('id','name')->where('slug',$slug)->first();
+        $blog  = Blog::where('category_id',$category->id)->paginate(10);
+
+        return view('front.blog.category_blog',compact('category','blog','category_list'));
     }
 }
