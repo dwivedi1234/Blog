@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 // front 
 Route::get('/', 'Front\HomeController@index')->name('index');
 Route::get('/blog/{slug}', 'Front\HomeController@blogDetails')->name('blogDetails');
-
 Route::get('category/{slug}','Front\HomeController@categoryBlog')->name('categoryBlog');
 
 
+Route::get('search','Front\HomeController@search')->name('search');
 
 
-
+Route::get('page/{name}','Front\HomeController@page')->name('page');
 
 
 

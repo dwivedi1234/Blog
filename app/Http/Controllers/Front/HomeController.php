@@ -39,4 +39,28 @@ class HomeController extends Controller
 
         return view('front.blog.category_blog',compact('category','blog','category_list'));
     }
+    public function search(Request $request)
+    {
+        # code...
+        $keyword = $request->keyword;
+        $blog = Blog::where('title', 'like', '%' . $keyword . '%')->get();
+
+        $category_list = Category::get();
+        return view('front.blog.search',compact('blog','category_list','keyword'));
+        // return $request->all();
+    }
+    public function page($name)
+    {
+        # code...
+        if($name == 'about'){
+            return view('about');
+        }
+        if ($name == 'contact') {
+            # code...
+            return view('contact');
+        }
+
+        // $page = Page::where('name',$name)->first();
+        // return view('page',compact('page'));
+    }
 }

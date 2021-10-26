@@ -34,6 +34,37 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- start comment  --}}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4>Comment</h4>
+                        <form action="" method="post">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="email_text" placeholder="Enter Name" name="Name">
+                                      </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="number" class="email_text" placeholder="Enter Phone" name="phone">
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="massage_text" placeholder="Comment" rows="5" id="comment" name="comment"></textarea>
+                              </div>
+                              <hr>
+                              <button type="submit" class="btn btn-lg btn-success mt-3">Comment</button>
+                            
+                        </form>
+                    </div>
+                </div>
+
+                {{-- ent comment  --}}
                   
             </div>
 

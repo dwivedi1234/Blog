@@ -39,7 +39,15 @@
                     <td>
                       <a  class="btn btn-sm btn-info setData">Edit</a>
                      
-                      <a href="" class="btn btn-sm btn-warning" >Remove</a>
+                      
+                      <form action="{{route('blog.destroy',$item->id)}}" method="post">
+                        {{ csrf_field() }} @method('delete')
+                        {{-- <a type="submit" class="btn btn-sm btn-warning" >Remove</a> --}}
+                        {{-- <button type="submit" class="btn btn-sm btn-warning">Remove</button> --}}
+
+                        <a type="submit" class="btn btn-info">Remove</a>
+
+                      </form>
                     </td>
                   </tr>
              @empty

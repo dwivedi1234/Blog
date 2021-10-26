@@ -12,18 +12,20 @@
                    <a class="nav-link" href="{{route('index')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                   <a class="nav-link" href="about.html">About</a>
+                   <a class="nav-link" href="{{route('page','about')}}">About</a>
                 </li>
                 
                 <li class="nav-item">
-                   <a class="nav-link" href="contact.html">Contact Us</a>
+                   <a class="nav-link" href="{{route('page','contact')}}">Contact Us</a>
                 </li>
+                
                 <li>
-                  <form class="form-inline">
-                     
+                  <form class="form-inline" action="{{route('search')}}" method="GET">
+                     {{ csrf_field() }}
+
                      <div class="form-group">
-                       <label for="inputPassword2" class="sr-only">Password</label>
-                       <input type="text" class="form-control" id="inputPassword2" placeholder="Search Blog"> &nbsp;
+                      
+                       <input type="text" name="keyword" value="{{@$keyword}}" class="form-control" id="inputPassword2" placeholder="Search Blog"> &nbsp;
                        <button type="submit" class="btn btn-primary">Search</button>
                      </div>
                    </form>
