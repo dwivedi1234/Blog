@@ -14,7 +14,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        // return view('details');
     }
 
     /**
@@ -22,9 +22,12 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
+          
+
+        
     }
 
     /**
@@ -33,9 +36,11 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+    //   $blog=Comment::get();
+    //   return view('admin',compact('blog'));
+      
     }
 
     /**

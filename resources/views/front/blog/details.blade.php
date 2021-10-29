@@ -38,13 +38,27 @@
                 {{-- start comment  --}}
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>Comment</h4>
-                        <form action="" method="post">
+                        <h4>Comment</h4> <a href="{{route('allcomment')}}">allcomment</a>
+                        {{-- @foreach ($blog->comment as $item)
+                        <div class="media">
+                            <img class="mr-3" src="https://via.placeholder.com/50" alt="Generic placeholder image">
+                            <div class="media-body">
+                              <h5 class="mt-0">{{$item->name}}</h5>
+                              {{$item->phone}} <br>
+                              {{$item->comment}}
+                            </div>
+                          </div>
+                            <hr>
+                        @endforeach --}}
+
+                        @include('front.layouts.msg')
+
+                        <form action="{{route('commentStore',$blog->id)}}" method="post">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="email_text" placeholder="Enter Name" name="Name">
+                                        <input type="text" class="email_text" placeholder="Enter Name" name="name">
                                       </div>
                                 </div>
                                 <div class="col-md-6">
@@ -59,7 +73,6 @@
                               </div>
                               <hr>
                               <button type="submit" class="btn btn-lg btn-success mt-3">Comment</button>
-                            
                         </form>
                     </div>
                 </div>
@@ -67,8 +80,6 @@
                 {{-- ent comment  --}}
                   
             </div>
-
-
               <div class="col-lg-4 col-sm-12">
 
                  <div class="row">
@@ -98,6 +109,9 @@
                         @empty
                             <p>No Blog</p>
                         @endforelse
+
+
+                        {{-- <h2>allcomment</h2> --}}
                         
                   </div>
                      </div>

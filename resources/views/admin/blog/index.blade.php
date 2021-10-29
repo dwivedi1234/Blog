@@ -41,11 +41,12 @@
                      
                       
                       <form action="{{route('blog.destroy',$item->id)}}" method="post">
-                        {{ csrf_field() }} @method('delete')
-                        {{-- <a type="submit" class="btn btn-sm btn-warning" >Remove</a> --}}
-                        {{-- <button type="submit" class="btn btn-sm btn-warning">Remove</button> --}}
+                        {{ csrf_field() }}
+                         @method('Delete')
+                    
+                        <button type="submit" class="btn btn-sm btn-warning">Remove</button>
 
-                        <a type="submit" class="btn btn-info">Remove</a>
+                       
 
                       </form>
                     </td>

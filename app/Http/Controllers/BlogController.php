@@ -61,8 +61,10 @@ class BlogController extends Controller
             $image_path = public_path('/uploads/blog');
             $image->move($image_path, $name);
             $blog->thumbnail = $name;
-            
+        }else{
+            $blog->thumbnail = 'default.png';
         }
+
         if ($blog->save()) {
             # code...
             // Session::flash('message', 'This is a message!'); 
@@ -117,6 +119,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        
         $blog->delete();
         return redirect()->back();
     }

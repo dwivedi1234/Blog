@@ -6,9 +6,28 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
+use Auth;
 class HomeController extends Controller
 {
-    
+    public function testloginform()
+    {
+        # code...
+        return view('login');
+    }
+    public function testLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        // $credentials = $request->only('email', 'password');
+        if (Auth::attempt(['email'=> $request->email,'password' => $request->password])) {
+            return redirect()->route('home')->withSuccess('You have Successfully loggedin');
+        }
+  
+        return redirect()->route('testlogin')->withSuccess('Oppes! You have entered invalid credentials');
+    }
     public function index()
     {
         # code...

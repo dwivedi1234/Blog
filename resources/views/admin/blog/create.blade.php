@@ -19,6 +19,9 @@
     <div class="row">
       <div class="col-md-12">
         
+       
+
+          
         <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
             
@@ -27,8 +30,21 @@
                   <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Blog Title" value="{{old('title')}}"  name="title">
 
                   @error('title')
-                      <small  class="form-text text-danger"> {{$message}}</small>
+                      <small  class="form-text text-danger">{{$message}}</small>
                   @enderror
+
+
+                  {{-- @if ($errors->has('title'))
+                  <span class="text-danger">{{ $errors->first('title') }}</span>
+                  @endif --}}
+
+                  @if(session()->has('title'))
+                    <div class="alert alert-danger">
+                        {!! session()->get('title') !!}
+                    </div>
+                @endif
+
+
                 </div>
 
 

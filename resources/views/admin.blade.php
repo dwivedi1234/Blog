@@ -9,62 +9,37 @@
 
     
 
-    <h2>Latest 10 Blogs</h2>
+    <h2>Latest Comments</h2>
     <div class="table-responsive">
       <table class="table table-striped table-sm">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
-            <th scope="col">Header</th>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Created_at</th>
+            <th scope="col">Updated_at</th>
+            <th scope="col">Action</th>
+
+
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1,001</td>
-            <td>random</td>
-            <td>data</td>
-            <td>placeholder</td>
-            <td>text</td>
-          </tr>
-          <tr>
-            <td>1,002</td>
-            <td>placeholder</td>
-            <td>irrelevant</td>
-            <td>visual</td>
-            <td>layout</td>
-          </tr>
-          <tr>
-            <td>1,003</td>
-            <td>data</td>
-            <td>rich</td>
-            <td>dashboard</td>
-            <td>tabular</td>
-          </tr>
-          <tr>
-            <td>1,003</td>
-            <td>information</td>
-            <td>placeholder</td>
-            <td>illustrative</td>
-            <td>data</td>
-          </tr>
-          <tr>
-            <td>1,004</td>
-            <td>text</td>
-            <td>random</td>
-            <td>layout</td>
-            <td>dashboard</td>
-          </tr>
-          <tr>
-            <td>1,005</td>
-            <td>dashboard</td>
-            <td>irrelevant</td>
-            <td>text</td>
-            <td>placeholder</td>
-          </tr>
-         
+          @foreach ($blog as $i => $value)
+         <tr>
+          <th scope="row">{{$value->id}}</th>
+          <td>{{$value->name}}</td>
+          <td>{{$value->phone}}</td>
+          <td>{{$value->comment}}</td>
+          <td>{{$value->created_at}}</td>
+          <td>{{$value->updated_at}}</td>
+           <td>
+             {{-- <a href="{{route('editdata',$value->id)}}" class="btn btn-sm btn-danger">Edit</a>
+             <a href="{{route('deletedata',$value->id)}}" class="btn btn-sm btn-danger">Delete</a> --}}
+          </td>
+          </tr>   
+         @endforeach
         </tbody>
       </table>
     </div>

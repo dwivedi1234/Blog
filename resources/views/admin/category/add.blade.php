@@ -57,13 +57,13 @@
               <td>{{$item->created_at->diffForHumans()}}</td>
               <td>
                 <a  class="btn btn-sm btn-info setData" 
-                    data-id = {{$item->id}}
-                    data-name = {{$item->name}}
-                    data-slug = {{$item->slug}}
+                    data-id = "{{$item->id}}"
+                    data-name = "{{$item->name}}"
+                    data-slug = "{{$item->slug}}"
                     data-bs-toggle="modal" 
                     data-bs-target="#exampleModal">Edit</a>
                
-                <a href="" class="btn btn-sm btn-warning" >Remove</a>
+                <a href="" class="btn btn-sm btn-warning" >Delete</a>
               </td>
             </tr>
              @endforeach
